@@ -1,5 +1,5 @@
 {
-  "name": "my-cli-tool",
+  "name": "expressgen",
   "version": "1.0.0",
   "description": "A CLI tool for generating Node.js Express project files",
   "main": "src/index.js",

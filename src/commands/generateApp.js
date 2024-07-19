@@ -38,7 +38,7 @@ const generateApp = async (name, options) => {
 
   console.log('App generated successfully.\n');
   console.log('Run the following command to start the app:\n');
-  console.log(`cd ${name} && npm install && npm install && npm start`);
+  console.log(`cd ${name} && npm install && npm start`);
 };
 
 module.exports = generateApp;

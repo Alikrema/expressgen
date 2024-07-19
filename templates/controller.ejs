@@ -1,0 +1,59 @@
+const <%- name %>Service = require('../services/<%- name %>Service');
+
+const get<%- name %>ById = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const result = await <%- name %>Service.get<%- name %>ById(id);
+    res.json(result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const getAll<%- name %>s = async (req, res, next) => {
+  try {
+    const result = await <%- name %>Service.getAll<%- name %>s();
+    res.json(result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const create<%- name %> = async (req, res, next) => {
+  try {
+    const data = req.body;
+    const result = await <%- name %>Service.create<%- name %>(data);
+    res.json(result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const update<%- name %> = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const data = req.body;
+    const result = await <%- name %>Service.update<%- name %>(id, data);
+    res.json(result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const delete<%- name %> = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const result = await <%- name %>Service.delete<%- name %>(id);
+    res.json(result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = {
+  get<%- name %>ById,
+  getAll<%- name %>s,
+  create<%- name %>,
+  update<%- name %>,
+  delete<%- name %>
+};

@@ -1,0 +1,23 @@
+{
+  "name": "my-cli-tool",
+  "version": "1.0.0",
+  "description": "A CLI tool for generating Node.js Express project files",
+  "main": "src/index.js",
+  "bin": {
+    "my-cli": "./bin/cli.js"
+  },
+  "scripts": {
+    "start": "node ./bin/cli.js"
+  },
+  "keywords": [
+    "CLI",
+    "Node.js",
+    "Express"
+  ],
+  "dependencies": {
+    "commander": "^12.1.0",
+    "ejs": "^3.1.10",
+    "fs-extra": "^11.2.0",
+    "inquirer": "^10.0.4"
+  }
+}

@@ -101,8 +101,10 @@ const generateModule = async (name) => {
   console.log(
     'Please add the following code to src/app.js: to register the module router'
   );
-  console.log(`const ${name}Router = require('./routers/${name}Router');\n`);
-  console.log(`app.use('/${name}', ${name}Router);`);
+  console.log(
+    `const ${singularName}Router = require('./routers/${singularName}Router');\n`
+  );
+  console.log(`app.use('/${singularName}', ${singularName}Router);`);
 };
 
 module.exports = generateModule;

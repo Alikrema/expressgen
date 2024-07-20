@@ -65,9 +65,14 @@ const generateModule = async (name) => {
   await fs.outputFile(servicePath, serviceContent);
   await fs.outputFile(repoPath, repoContent);
 
-  await addRouter(name);
+  // await addRouter(name);
 
   console.log(`${name} module generated successfully.`);
+  console.log(
+    'Please add the following code to src/app.js: to register the module router'
+  );
+  console.log(`const ${name}Router = require('./routers/${name}Router');\n`);
+  console.log(`app.use('/${name}', ${name}Router);`);
 };
 
 module.exports = generateModule;

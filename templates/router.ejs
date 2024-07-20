@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const <%- name %>Controller = require('../controllers/<%- name %>Controller');
+const <%- singularName %>Controller = require('../controllers/<%- singularName %>Controller');
 
-router.get('/', <%- name %>Controller.get<%- name %>);
-router.get('/:id', <%- name %>Controller.get<%- name %>ById);
-router.post('/', <%- name %>Controller.create<%- name %>);
-router.put('/:id', <%- name %>Controller.update<%- name %>);
-router.delete('/:id', <%- name %>Controller.delete<%- name %>);
+router.get('/', <%- singularName %>Controller.getAll<%- singularCamelCaseName %>s);
+router.get('/:id', <%- singularName %>Controller.get<%- singularCamelCaseName %>ById);
+router.post('/', <%- singularName %>Controller.create<%- singularCamelCaseName %>);
+router.put('/:id', <%- singularName %>Controller.update<%- singularCamelCaseName %>);
+router.delete('/:id', <%- singularName %>Controller.delete<%- singularCamelCaseName %>);
 
 module.exports = router;

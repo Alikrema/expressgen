@@ -1,49 +1,49 @@
-const <%- name %>Service = require('../services/<%- name %>Service');
+const <%- singularName %>Service = require('../services/<%- singularName %>Service');
 
-const get<%- name %>ById = async (req, res, next) => {
+const get<%- singularCamelCaseName %>ById = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const result = await <%- name %>Service.get<%- name %>ById(id);
+    const result = await <%- singularName %>Service.get<%- singularCamelCaseName %>ById(id);
     res.json(result);
   } catch (error) {
     next(error);
   }
 };
 
-const getAll<%- name %>s = async (req, res, next) => {
+const getAll<%- singularCamelCaseName %>s = async (req, res, next) => {
   try {
-    const result = await <%- name %>Service.getAll<%- name %>s();
+    const result = await <%- singularName %>Service.getAll<%- singularCamelCaseName %>s();
     res.json(result);
   } catch (error) {
     next(error);
   }
 };
 
-const create<%- name %> = async (req, res, next) => {
+const create<%- singularCamelCaseName %> = async (req, res, next) => {
   try {
     const data = req.body;
-    const result = await <%- name %>Service.create<%- name %>(data);
+    const result = await <%- singularName %>Service.create<%- singularCamelCaseName %>(data);
     res.json(result);
   } catch (error) {
     next(error);
   }
 };
 
-const update<%- name %> = async (req, res, next) => {
+const update<%- singularCamelCaseName %> = async (req, res, next) => {
   try {
     const { id } = req.params;
     const data = req.body;
-    const result = await <%- name %>Service.update<%- name %>(id, data);
+    const result = await <%- singularName %>Service.update<%- singularCamelCaseName %>(id, data);
     res.json(result);
   } catch (error) {
     next(error);
   }
 };
 
-const delete<%- name %> = async (req, res, next) => {
+const delete<%- singularCamelCaseName %> = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const result = await <%- name %>Service.delete<%- name %>(id);
+    const result = await <%- singularName %>Service.delete<%- singularCamelCaseName %>(id);
     res.json(result);
   } catch (error) {
     next(error);
@@ -51,9 +51,8 @@ const delete<%- name %> = async (req, res, next) => {
 };
 
 module.exports = {
-  get<%- name %>ById,
-  getAll<%- name %>s,
-  create<%- name %>,
-  update<%- name %>,
-  delete<%- name %>
-};
+  get<%- singularCamelCaseName %>ById,
+  getAll<%- singularCamelCaseName %>s,
+  create<%- singularCamelCaseName %>,
+  update<%- singularCamelCaseName %>,
+ 

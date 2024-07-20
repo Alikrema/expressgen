@@ -1,49 +1,49 @@
-const <%- name %>Repository = require('../repos/<%- name %>Repos'); 
+const <%- singularName %>Repository = require('../repos/<%- singularName %>Repo');
 
-const get<%- name %>ById = async (id) => {
+const get<%- singularCamelCaseName %>ById = async (id) => {
   try {
-    return await <%- name %>Repository.getById(id);
+    return await <%- singularName %>Repository.getById(id);
   } catch (error) {
     throw error;
   }
 };
 
-const getAll<%- name %>s = async () => {
+const getAll<%- singularCamelCaseName %>s = async () => {
   try {
-    return await <%- name %>Repository.getAll();
+    return await <%- singularName %>Repository.getAll();
   } catch (error) {
     throw error;
   }
 };
 
-const create<%- name %> = async (data) => {
+const create<%- singularCamelCaseName %> = async (data) => {
   try {
-    return await <%- name %>Repository.create(data);
+    return await <%- singularName %>Repository.create(data);
   } catch (error) {
     throw error;
   }
 };
 
-const update<%- name %> = async (id, data) => {
+const update<%- singularCamelCaseName %> = async (id, data) => {
   try {
-    return await <%- name %>Repository.update(id, data);
+    return await <%- singularName %>Repository.update(id, data);
   } catch (error) {
     throw error;
   }
 };
 
-const delete<%- name %> = async (id) => {
+const delete<%- singularCamelCaseName %> = async (id) => {
   try {
-    return await <%- name %>Repository.delete(id);
+    return await <%- singularName %>Repository.delete(id);
   } catch (error) {
     throw error;
   }
 };
 
 module.exports = {
-  get<%- name %>ById,
-  getAll<%- name %>s,
-  create<%- name %>,
-  update<%- name %>,
-  delete<%- name %>
+  get<%- singularCamelCaseName %>ById,
+  getAll<%- singularCamelCaseName %>s,
+  create<%- singularCamelCaseName %>,
+  update<%- singularCamelCaseName %>,
+  delete<%- singularCamelCaseName %>
 };

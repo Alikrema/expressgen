@@ -2,9 +2,22 @@ const fs = require('fs-extra');
 const ejs = require('ejs');
 const path = require('path');
 const addRouter = require('../helpers/addRouter');
+const pluralize = require('pluralize');
+
+const toCamelCase = (str) => {
+  return str
+    .split(' ')
+    .map((word) => {
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    })
+    .join(' ');
+};
 
 const generateModule = async (name) => {
   const packageJsonPath = path.join(process.cwd(), 'package.json');
+
+  const singularName = pluralize.singular(name.toLowerCase());
+  const singularCamelCaseName = toCamelCase(singularName);
 
   if (!(await fs.pathExists(packageJsonPath))) {
     console.error(
@@ -28,31 +41,48 @@ const generateModule = async (name) => {
     process.cwd(),
     'src',
     'routers',
-    `${name}Router.js`
+    `${singularName}Router.js`
   );
   const controllerPath = path.join(
     process.cwd(),
     'src',
     'controllers',
-    `${name}Controller.js`
+    `${singularName}Controller.js`
   );
   const servicePath = path.join(
     process.cwd(),
     'src',
     'services',
-    `${name}Service.js`
+    `${singularName}Service.js`
   );
-  const repoPath = path.join(process.cwd(), 'src', 'repos', `${name}Repo.js`);
+  const repoPath = path.join(
+    process.cwd(),
+    'src',
+    'repos',
+    `${singularName}Repo.js`
+  );
 
   const routerTemplate = await fs.readFile(routerTemplatePath, 'utf8');
   const controllerTemplate = await fs.readFile(controllerTemplatePath, 'utf8');
   const serviceTemplate = await fs.readFile(serviceTemplatePath, 'utf8');
   const repoTemplate = await fs.readFile(repoTemplatePath, 'utf8');
 
-  const routerContent = ejs.render(routerTemplate, { name });
-  const controllerContent = ejs.render(controllerTemplate, { name });
-  const serviceContent = ejs.render(serviceTemplate, { name });
-  const repoContent = ejs.render(repoTemplate, { name });
+  const routerContent = ejs.render(routerTemplate, {
+    singularName,
+    singularCamelCaseName,
+  });
+  const controllerContent = ejs.render(controllerTemplate, {
+    singularName,
+    singularCamelCaseName,
+  });
+  const serviceContent = ejs.render(serviceTemplate, {
+    singularName,
+    singularCamelCaseName,
+  });
+  const repoContent = ejs.render(repoTemplate, {
+    singularName,
+    singularCamelCaseName,
+  });
 
   await fs.ensureDir(path.join(process.cwd(), 'src'));
   await fs.ensureDir(path.join(process.cwd(), 'src', 'routers'));

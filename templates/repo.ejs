@@ -1,28 +1,27 @@
-const get<%- name %>ById = async (id) => {
-    throw new Error('Not implemented yet');
-  };
-  
-  const getAll<%- name %>s = async () => {
-    throw new Error('Not implemented yet');
-  };
-  
-  const create<%- name %> = async (data) => {
-    throw new Error('Not implemented yet');
-  };
-  
-  const update<%- name %> = async (id, data) => {
-    throw new Error('Not implemented yet');
-  };
-  
-  const delete<%- name %> = async (id) => {
-    throw new Error('Not implemented yet');
-  };
-  
-  module.exports = {
-    get<%- name %>ById,
-    getAll<%- name %>s,
-    create<%- name %>,
-    update<%- name %>,
-    delete<%- name %>
-  };
-  
+const get<%- singularCamelCaseName %>ById = async (id) => {
+  throw new Error('Not implemented yet');
+};
+
+const getAll<%- singularCamelCaseName %>s = async () => {
+  throw new Error('Not implemented yet');
+};
+
+const create<%- singularCamelCaseName %> = async (data) => {
+  throw new Error('Not implemented yet');
+};
+
+const update<%- singularCamelCaseName %> = async (id, data) => {
+  throw new Error('Not implemented yet');
+};
+
+const delete<%- singularCamelCaseName %> = async (id) => {
+  throw new Error('Not implemented yet');
+};
+
+module.exports = {
+  get<%- singularCamelCaseName %>ById,
+  getAll<%- singularCamelCaseName %>s,
+  create<%- singularCamelCaseName %>,
+  update<%- singularCamelCaseName %>,
+  delete<%- singularCamelCaseName %>
+};

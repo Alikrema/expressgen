@@ -20,7 +20,7 @@ const generateApp = async (name, options) => {
   await fs.ensureDir(appDir);
 
   const templatePath = path.join(__dirname, '../../templates/app.ejs');
-  const outputPath = path.join(appDir, 'app.js');
+  const outputPath = path.join(appDir, 'src', 'app.js');
 
   const template = await fs.readFile(templatePath, 'utf8');
   const content = ejs.render(template, { name });

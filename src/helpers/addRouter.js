@@ -2,7 +2,7 @@ const fs = require('fs-extra');
 const path = require('path');
 
 const addRouter = async (name) => {
-  const filePath = path.join(process.cwd(), 'app.js');
+  const filePath = path.join(process.cwd(), 'src', 'app.js');
   const routerImport = `const ${name}Router = require('./src/routes/${name}Router');\n`;
   const routerUse = `app.use('/${name}', ${name}Router);\n`;
 

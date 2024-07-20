@@ -4,6 +4,15 @@ const path = require('path');
 const addRouter = require('../helpers/addRouter');
 
 const generateModule = async (name) => {
+  const packageJsonPath = path.join(process.cwd(), 'package.json');
+
+  if (!(await fs.pathExists(packageJsonPath))) {
+    console.error(
+      'Error: This command must be run from a folder that contains a package.json file (a valid Node.js project).'
+    );
+    process.exit(1);
+  }
+
   const routerTemplatePath = path.join(__dirname, '../../templates/router.ejs');
   const controllerTemplatePath = path.join(
     __dirname,
@@ -57,6 +66,8 @@ const generateModule = async (name) => {
   await fs.outputFile(repoPath, repoContent);
 
   await addRouter(name);
+
+  console.log(`${name} module generated successfully.`);
 };
 
 module.exports = generateModule;
